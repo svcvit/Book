@@ -5,5 +5,7 @@ target 'Book' do
     pod 'Alamofire', '~> 4.0'
     pod 'MBProgressHUD', '~> 1.0.0'
     pod 'Toast-Swift', :podspec => 'https://raw.githubusercontent.com/scalessec/Toast-Swift/master/Toast-Swift.podspec'
+    pod 'SwiftyJSON'
+    pod 'Kingfisher', '~> 3.0'
 
 end
