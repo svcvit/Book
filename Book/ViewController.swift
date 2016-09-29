@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import MBProgressHUD
+import ESPullToRefresh
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -18,9 +19,6 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     let tag = "爱情"
     var books:JSON = []
     
-    func hello(){
-        print ("hello")
-    }
     
 //    @IBOutlet weak var tableView: UITableView!
     
@@ -33,25 +31,47 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        
-        let loadingNotification:MBProgressHUD
-        loadingNotification = MBProgressHUD.showAdded(to: self.view!, animated: true)
-        loadingNotification.label.text = "Loading"
-        
-        Alamofire.request(url, method: .get, parameters: ["tag":tag,"start":0,"count":100],encoding: URLEncoding.default).responseJSON {
-            response in
-            
-            switch response.result {
-            case .success:
-                print("Validation Successful")
-                MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
-                self.books = JSON(response.result.value)["subjects"]
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error)
+    
+        self.tableView.es_addPullToRefresh {
+            [weak self] in
+            Alamofire.request((self?.url)!, method: .get, parameters: ["tag":(self?.tag)!,"start":0,"count":10],encoding: URLEncoding.default).responseJSON {
+                response in
+                
+                switch response.result {
+                case .success:
+                    
+                    self?.books = JSON(response.result.value)["subjects"]
+                    print (JSON(response.result.value))
+                    self?.tableView.reloadData()
+                    self?.tableView.es_stopPullToRefresh(completion: true)
+                case .failure(let error):
+                    print(error)
+                }
+                
             }
             
+
         }
+        
+        
+//        let loadingNotification:MBProgressHUD
+//        loadingNotification = MBProgressHUD.showAdded(to: self.view!, animated: true)
+//        loadingNotification.label.text = "Loading"
+//        
+//        Alamofire.request(url, method: .get, parameters: ["tag":tag,"start":0,"count":100],encoding: URLEncoding.default).responseJSON {
+//            response in
+//            
+//            switch response.result {
+//            case .success:
+//                print("Validation Successful")
+//                MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+//                self.books = JSON(response.result.value)["subjects"]
+//                self.tableView.reloadData()
+//            case .failure(let error):
+//                print(error)
+//            }
+//            
+//        }
  
     }
     
@@ -60,20 +80,17 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-//        return self.books != nil ? self.books.count : 0
+        print (self.books.count)
         return self.books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let bookCell = tableView.dequeueReusableCell(withIdentifier: identifierBookCell, for: indexPath) as! BookCell;
         bookCell.configureWithBook(book: books[indexPath.row])
-        
         return bookCell
         
     }
-    
-    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

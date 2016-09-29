@@ -7,5 +7,7 @@ target 'Book' do
     pod 'Toast-Swift', :podspec => 'https://raw.githubusercontent.com/scalessec/Toast-Swift/master/Toast-Swift.podspec'
     pod 'SwiftyJSON'
     pod 'Kingfisher', '~> 3.0'
+    pod 'DGElasticPullToRefresh'
+    pod 'ESPullToRefresh', :podspec => 'https://raw.githubusercontent.com/eggswift/pull-to-refresh/master/ESPullToRefresh.podspec'
 
 end

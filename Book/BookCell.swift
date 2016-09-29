@@ -22,7 +22,7 @@ class BookCell:UITableViewCell {
         print (book)
         imageViewIcon.kf.setImage(with: URL(string:book["images"]["large"].string!))
         labelTitle.text = book["title"].string
-        labelDetail.text = book["original_title"].string
+        labelDetail.text = ("评分：\(book["rating"]["average"].double!.description)")
         print(book["title"].string)
     }
 

@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.0.0)
+  - DGElasticPullToRefresh (1.1)
+  - ESPullToRefresh (2.1)
   - Kingfisher (3.1.0)
   - MBProgressHUD (1.0.0)
   - SwiftyJSON (3.0.0)
@@ -7,22 +9,28 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - DGElasticPullToRefresh
+  - ESPullToRefresh (from `https://raw.githubusercontent.com/eggswift/pull-to-refresh/master/ESPullToRefresh.podspec`)
   - Kingfisher (~> 3.0)
   - MBProgressHUD (~> 1.0.0)
   - SwiftyJSON
   - Toast-Swift (from `https://raw.githubusercontent.com/scalessec/Toast-Swift/master/Toast-Swift.podspec`)
 
 EXTERNAL SOURCES:
+  ESPullToRefresh:
+    :podspec: https://raw.githubusercontent.com/eggswift/pull-to-refresh/master/ESPullToRefresh.podspec
   Toast-Swift:
     :podspec: https://raw.githubusercontent.com/scalessec/Toast-Swift/master/Toast-Swift.podspec
 
 SPEC CHECKSUMS:
   Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  DGElasticPullToRefresh: 28f11a6026302a90f8ffebbc6e24748e584dddd3
+  ESPullToRefresh: bb9e156053af3f7f8829c125b27ce00066372e30
   Kingfisher: 7779f22e977393e9533a89a9685beb8f679d3767
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: 12d1a7129a628a983676b4d16fe5107802ab7dad
+PODFILE CHECKSUM: 9c7746470738624ced0b038bb64f3ce67dee866f
 
 COCOAPODS: 1.1.0.beta.2
