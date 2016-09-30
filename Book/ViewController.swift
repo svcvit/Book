@@ -30,7 +30,29 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-    
+        
+        //MARK:首次自动加载
+        let loadingNotification:MBProgressHUD
+        loadingNotification = MBProgressHUD.showAdded(to: self.view!, animated: true)
+        loadingNotification.label.text = "Loading"
+        
+        
+        Alamofire.request(url, method: .get, parameters: ["tag":tag,"start":0,"count":pageSize],encoding: URLEncoding.default).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success:
+                self.books = JSON(response.result.value)["subjects"]
+                self.page = 1
+                MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+                self.tableView.reloadData()
+                self.tableView.es_stopPullToRefresh(completion: true)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        //MARK:下拉刷新数据
         self.tableView.es_addPullToRefresh {
             [weak self] in
             Alamofire.request((self?.url)!, method: .get, parameters: ["tag":(self?.tag)!,"start":0,"count":(self?.pageSize)],encoding: URLEncoding.default).responseJSON {
@@ -49,7 +71,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         }
         
         
-        
+        //MARK:上拉加载数据
         self.tableView.es_addInfiniteScrolling {
             [weak self] in
             Alamofire.request((self?.url)!, method: .get, parameters: ["tag":(self?.tag)!,"start":((self?.page)! * (self?.pageSize)!),"count":(self?.pageSize)],encoding: URLEncoding.default).responseJSON {
@@ -61,7 +83,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                     let KeyBooks = JSON(response.result.value)["subjects"]
                     
                     if KeyBooks.isEmpty {
-                        /// 通过es_noticeNoMoreData()设置footer暂无数据状态
+                        //通过es_noticeNoMoreData()设置footer暂无数据状态
                         self?.tableView.es_noticeNoMoreData()
                     } else {
                         self?.books = JSON(self!.books.arrayObject! + KeyBooks.arrayObject!)
@@ -70,7 +92,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                         for (k,_):(String,JSON) in KeyBooks {
                             indexpaths.append([0,count!+Int(k)!])
                         }
-                        /// 如果你的加载更多事件成功，调用es_stopLoadingMore()重置footer状态
+                        //如果你的加载更多事件成功，调用es_stopLoadingMore()重置footer状态
 
                         self?.tableView.es_stopLoadingMore()
                         self?.tableView.insertRows(at: indexpaths, with: .automatic)
