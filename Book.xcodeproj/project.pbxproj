@@ -20,6 +20,7 @@
 /* Begin PBXFileReference section */
 		3C1AB115CDE842C7A39D4466 /* Pods-Book.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Book.release.xcconfig"; path = "Pods/Target Support Files/Pods-Book/Pods-Book.release.xcconfig"; sourceTree = "<group>"; };
 		677193C9745C052C9353FE2D /* Pods-Book.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Book.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Book/Pods-Book.debug.xcconfig"; sourceTree = "<group>"; };
+		E41A2F341D9D15E2006401C9 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		E46C56821D96A73100C00BD9 /* Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Book.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46C56851D96A73100C00BD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E46C56871D96A73100C00BD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 				E46C56911D96A73100C00BD9 /* Info.plist */,
 				E46C56971D96A7E000C00BD9 /* NetManager.swift */,
 				E4F0BCA91D9A919A00441E3C /* BookCell.swift */,
+				E41A2F341D9D15E2006401C9 /* MyPlayground.playground */,
 			);
 			path = Book;
 			sourceTree = "<group>";
