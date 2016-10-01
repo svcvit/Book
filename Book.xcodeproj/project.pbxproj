@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		A434E88E3F9DB594EFD05AA4 /* Pods_Book.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED843E4E93EC1008644E33D3 /* Pods_Book.framework */; };
 		E46C56861D96A73100C00BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C56851D96A73100C00BD9 /* AppDelegate.swift */; };
-		E46C56881D96A73100C00BD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C56871D96A73100C00BD9 /* ViewController.swift */; };
+		E46C56881D96A73100C00BD9 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C56871D96A73100C00BD9 /* BookViewController.swift */; };
 		E46C568B1D96A73100C00BD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46C56891D96A73100C00BD9 /* Main.storyboard */; };
 		E46C568D1D96A73100C00BD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46C568C1D96A73100C00BD9 /* Assets.xcassets */; };
 		E46C56901D96A73100C00BD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46C568E1D96A73100C00BD9 /* LaunchScreen.storyboard */; };
 		E46C56981D96A7E000C00BD9 /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C56971D96A7E000C00BD9 /* NetManager.swift */; };
+		E4F01FB61D9FAE7F00962B2E /* BookSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F01FB51D9FAE7F00962B2E /* BookSearchController.swift */; };
 		E4F0BCAA1D9A919A00441E3C /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F0BCA91D9A919A00441E3C /* BookCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,12 +24,13 @@
 		E41A2F341D9D15E2006401C9 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		E46C56821D96A73100C00BD9 /* Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Book.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46C56851D96A73100C00BD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E46C56871D96A73100C00BD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E46C56871D96A73100C00BD9 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		E46C568A1D96A73100C00BD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E46C568C1D96A73100C00BD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E46C568F1D96A73100C00BD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E46C56911D96A73100C00BD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E46C56971D96A7E000C00BD9 /* NetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
+		E4F01FB51D9FAE7F00962B2E /* BookSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookSearchController.swift; sourceTree = "<group>"; };
 		E4F0BCA91D9A919A00441E3C /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		ED843E4E93EC1008644E33D3 /* Pods_Book.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Book.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,7 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				E46C56851D96A73100C00BD9 /* AppDelegate.swift */,
-				E46C56871D96A73100C00BD9 /* ViewController.swift */,
+				E46C56871D96A73100C00BD9 /* BookViewController.swift */,
+				E4F01FB51D9FAE7F00962B2E /* BookSearchController.swift */,
 				E46C56891D96A73100C00BD9 /* Main.storyboard */,
 				E46C568C1D96A73100C00BD9 /* Assets.xcassets */,
 				E46C568E1D96A73100C00BD9 /* LaunchScreen.storyboard */,
@@ -220,9 +223,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E46C56881D96A73100C00BD9 /* ViewController.swift in Sources */,
+				E46C56881D96A73100C00BD9 /* BookViewController.swift in Sources */,
 				E46C56981D96A7E000C00BD9 /* NetManager.swift in Sources */,
 				E46C56861D96A73100C00BD9 /* AppDelegate.swift in Sources */,
+				E4F01FB61D9FAE7F00962B2E /* BookSearchController.swift in Sources */,
 				E4F0BCAA1D9A919A00441E3C /* BookCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +354,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 78U8429KE5;
 				INFOPLIST_FILE = Book/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ron.Book;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -365,6 +370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 78U8429KE5;
 				INFOPLIST_FILE = Book/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ron.Book;
 				PRODUCT_NAME = "$(TARGET_NAME)";

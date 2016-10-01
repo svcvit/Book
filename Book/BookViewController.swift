@@ -12,7 +12,7 @@ import SwiftyJSON
 import MBProgressHUD
 import ESPullToRefresh
 
-class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class BookViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     let identifierBookCell = "NormalCell"
     let url = "https://api.douban.com/v2/movie/search"
@@ -23,12 +23,19 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        //设置searchbar
+        
+        let searchController = storyboard?.instantiateViewController(withIdentifier: "BookSearchController") as! BookSearchController
+        searchController.bookController = self
+        searchView.addSubview(searchController.searchController.searchBar)
         
         
         //MARK:首次自动加载
@@ -105,9 +112,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         }
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
-        }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//            return 1
+//        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.books.count
@@ -117,7 +124,6 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         let bookCell = tableView.dequeueReusableCell(withIdentifier: identifierBookCell, for: indexPath) as! BookCell;
         bookCell.configureWithBook(book: books[indexPath.row])
         return bookCell
-        
     }
 
     
@@ -127,21 +133,5 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     
-}
-
-extension JSON {
-    mutating func merge(other: JSON) {
-        for (key, subJson) in other {
-            self[key] = subJson
-        }
-    }
-    
-    func merged(other: JSON) -> JSON {
-        var merged = self
-        for (key, subJson) in other {
-            merged[key] = subJson
-        }
-        return merged
-    }
 }
 
