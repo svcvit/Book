@@ -37,9 +37,8 @@ class BookSearchController: UIViewController,UISearchResultsUpdating,UITableView
     
     //MARK: -UISearchResultsUpdating-
     func updateSearchResults(for searchController: UISearchController) {
-        
+        self.searchTitle = [String]()
         if let tag = searchController.searchBar.text {
-            self.searchTitle = [String]()
         Alamofire.request(url, method: .get, parameters: ["tag":tag,"start":0,"count":5],encoding: URLEncoding.default).responseJSON {
             response in
             switch response.result {

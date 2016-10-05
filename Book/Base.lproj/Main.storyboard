@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11521.1" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uGW-si-1Wh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11521.1" systemVersion="16B2333a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uGW-si-1Wh">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11517.1"/>
@@ -42,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tuw-5A-onZ" id="wGK-w7-kwn">
-                                            <frame key="frameInset" width="375" height="99"/>
+                                            <frame key="frameInset" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1YI-ee-dqh">
@@ -60,12 +60,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xq2-VT-DUg">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="9sz-tt-8VJ"/>
+                                                        <constraint firstAttribute="width" constant="150" id="Fkr-Ts-beM"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Xq2-VT-DUg" firstAttribute="leading" secondItem="1YI-ee-dqh" secondAttribute="trailing" constant="8" id="2IU-1d-HgT"/>
                                                 <constraint firstItem="1YI-ee-dqh" firstAttribute="top" secondItem="wGK-w7-kwn" secondAttribute="top" constant="8" id="7VG-u2-qbM"/>
                                                 <constraint firstAttribute="bottom" secondItem="1YI-ee-dqh" secondAttribute="bottom" constant="8" id="7kW-K1-3N5"/>
                                                 <constraint firstItem="Lvq-dz-do2" firstAttribute="leading" secondItem="1YI-ee-dqh" secondAttribute="trailing" constant="8" id="9Te-cl-tJ3"/>
                                                 <constraint firstItem="1YI-ee-dqh" firstAttribute="leading" secondItem="wGK-w7-kwn" secondAttribute="leading" constant="8" id="BF1-2V-mAj"/>
+                                                <constraint firstItem="Xq2-VT-DUg" firstAttribute="top" secondItem="Lvq-dz-do2" secondAttribute="bottom" constant="8" id="Nnq-cN-L9H"/>
                                                 <constraint firstItem="Lvq-dz-do2" firstAttribute="top" secondItem="1YI-ee-dqh" secondAttribute="top" id="Xq9-Wf-U6g"/>
                                                 <constraint firstItem="bVJ-80-Nj6" firstAttribute="bottom" secondItem="1YI-ee-dqh" secondAttribute="bottom" id="nG8-Mx-MB1"/>
                                                 <constraint firstItem="bVJ-80-Nj6" firstAttribute="leading" secondItem="1YI-ee-dqh" secondAttribute="trailing" constant="8" id="qB7-pR-2GD"/>
@@ -75,6 +83,7 @@
                                             <outlet property="imageViewIcon" destination="1YI-ee-dqh" id="tjH-Sk-iNF"/>
                                             <outlet property="labelDetail" destination="bVJ-80-Nj6" id="dwG-th-jgE"/>
                                             <outlet property="labelTitle" destination="Lvq-dz-do2" id="odx-pw-qUS"/>
+                                            <outlet property="ratingViewContainer" destination="Xq2-VT-DUg" id="muz-yv-a8n"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -103,7 +112,6 @@
         <!--Book Search Controller-->
         <scene sceneID="NUG-lH-c2n">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mbC-zY-P1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="BookSearchController" id="NEV-sv-dpz" customClass="BookSearchController" customModule="Book" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mxf-Jz-ckL"/>
@@ -142,6 +150,7 @@
                         <outlet property="tableView" destination="9bM-jB-O6T" id="hu3-NB-0IX"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mbC-zY-P1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="876" y="127.28635682158921"/>
         </scene>

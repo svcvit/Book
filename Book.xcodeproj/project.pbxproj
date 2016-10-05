@@ -15,6 +15,7 @@
 		E46C56901D96A73100C00BD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46C568E1D96A73100C00BD9 /* LaunchScreen.storyboard */; };
 		E46C56981D96A7E000C00BD9 /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46C56971D96A7E000C00BD9 /* NetManager.swift */; };
 		E4F01FB61D9FAE7F00962B2E /* BookSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F01FB51D9FAE7F00962B2E /* BookSearchController.swift */; };
+		E4F01FB81D9FE68E00962B2E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F01FB71D9FE68E00962B2E /* RatingView.swift */; };
 		E4F0BCAA1D9A919A00441E3C /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F0BCA91D9A919A00441E3C /* BookCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		E46C56911D96A73100C00BD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E46C56971D96A7E000C00BD9 /* NetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
 		E4F01FB51D9FAE7F00962B2E /* BookSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookSearchController.swift; sourceTree = "<group>"; };
+		E4F01FB71D9FE68E00962B2E /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		E4F0BCA91D9A919A00441E3C /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		ED843E4E93EC1008644E33D3 /* Pods_Book.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Book.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,6 +97,7 @@
 				E46C56971D96A7E000C00BD9 /* NetManager.swift */,
 				E4F0BCA91D9A919A00441E3C /* BookCell.swift */,
 				E41A2F341D9D15E2006401C9 /* MyPlayground.playground */,
+				E4F01FB71D9FE68E00962B2E /* RatingView.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				E46C56881D96A73100C00BD9 /* BookViewController.swift in Sources */,
 				E46C56981D96A7E000C00BD9 /* NetManager.swift in Sources */,
 				E46C56861D96A73100C00BD9 /* AppDelegate.swift in Sources */,
+				E4F01FB81D9FE68E00962B2E /* RatingView.swift in Sources */,
 				E4F01FB61D9FAE7F00962B2E /* BookSearchController.swift in Sources */,
 				E4F0BCAA1D9A919A00441E3C /* BookCell.swift in Sources */,
 			);

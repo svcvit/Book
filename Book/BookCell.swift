@@ -15,15 +15,28 @@ class BookCell:UITableViewCell {
     @IBOutlet weak var imageViewIcon: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelDetail: UILabel!
+    @IBOutlet weak var ratingViewContainer: UIView!
     
     
     func configureWithBook(book:JSON) {
-        
-        print (book)
-        imageViewIcon.kf.setImage(with: URL(string:book["images"]["large"].string!))
+        imageViewIcon.kf.setImage(with: URL(string:book["images"]["medium"].string!))
         labelTitle.text = book["title"].string
         labelDetail.text = ("评分：\(book["rating"]["average"].double!.description)")
-        print(book["title"].string)
+        RatingView.showInView(view: ratingViewContainer, value:Double(transAverage(average: book["rating"]["average"].double!))!)
+        
     }
+    
+    //处理评分
+    func transAverage(average:Double) -> String {
+        return String(format: "%.1f", average/2)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
 
 }

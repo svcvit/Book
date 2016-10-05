@@ -27,6 +27,7 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -39,10 +40,13 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         
         //MARK:首次自动加载
+        
+//        使用es_startPullToRefresh首次加载，不过还是MBProgressHUD感觉舒服
+//        tableView.es_startPullToRefresh()
+        
         let loadingNotification:MBProgressHUD
         loadingNotification = MBProgressHUD.showAdded(to: self.view!, animated: true)
         loadingNotification.label.text = "Loading"
-        
         
         Alamofire.request(url, method: .get, parameters: ["tag":tag,"start":0,"count":pageSize],encoding: URLEncoding.default).responseJSON {
             response in
@@ -53,7 +57,6 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 self.page = 1
                 MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
                 self.tableView.reloadData()
-                self.tableView.es_stopPullToRefresh(completion: true)
             case .failure(let error):
                 print(error)
             }
@@ -112,9 +115,9 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
     }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//            return 1
-//        }
+    func numberOfSections(in tableView: UITableView) -> Int {
+            return 1
+        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.books.count
@@ -122,6 +125,7 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let bookCell = tableView.dequeueReusableCell(withIdentifier: identifierBookCell, for: indexPath) as! BookCell;
+        
         bookCell.configureWithBook(book: books[indexPath.row])
         return bookCell
     }
