@@ -12,7 +12,11 @@ import SwiftyJSON
 class DetailViewController: UIViewController,UITableViewDataSource,UITabBarDelegate {
 
     @IBAction func back(_ sender: AnyObject) {
-        navigationController!.popViewController(animated: true)
+        
+        //通过navigationController进入的返回
+        navigationController?.popViewController(animated: true)
+        //通过搜索进入的返回，退出当前页面
+        self.dismiss(animated: true, completion: nil)
     }
 
     @IBOutlet weak var labelTitle: UILabel!

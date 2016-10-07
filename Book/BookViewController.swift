@@ -27,10 +27,6 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
         
         //设置searchbar
         
@@ -125,7 +121,6 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let bookCell = tableView.dequeueReusableCell(withIdentifier: identifierBookCell, for: indexPath) as! BookCell;
-        
         bookCell.configureWithBook(book: books[indexPath.row])
         return bookCell
     }
@@ -133,7 +128,6 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         navigationController?.pushViewController(detailController, animated: true)
-        
         detailController.book = books[indexPath.row]
     }
     

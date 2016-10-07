@@ -10,7 +10,7 @@
         <!--Book View Controller-->
         <scene sceneID="1P4-ga-rc6">
             <objects>
-                <viewController id="uGW-si-1Wh" customClass="BookViewController" customModule="Book" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookViewController" id="uGW-si-1Wh" customClass="BookViewController" customModule="Book" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qPf-9g-fZJ"/>
                         <viewControllerLayoutGuide type="bottom" id="Mat-9B-Ot4"/>
@@ -88,6 +88,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="uGW-si-1Wh" id="uLz-Jj-nIf"/>
+                                    <outlet property="delegate" destination="uGW-si-1Wh" id="74W-hS-1ar"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i42-HW-K2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023.2" y="128.18590704647679"/>
+            <point key="canvasLocation" x="1113" y="-357"/>
         </scene>
         <!--Book Search Controller-->
         <scene sceneID="NUG-lH-c2n">
@@ -148,13 +152,15 @@
                             <constraint firstItem="2M1-kJ-IxV" firstAttribute="leading" secondItem="6b2-IK-THO" secondAttribute="leading" id="vGc-D4-nzF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="IQQ-Xm-JQA"/>
                     <connections>
                         <outlet property="tableView" destination="9bM-jB-O6T" id="hu3-NB-0IX"/>
+                        <segue destination="4bZ-WF-sWb" kind="show" identifier="showDetail" id="MLS-OV-mK0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbC-zY-P1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1815.2" y="127.28635682158921"/>
+            <point key="canvasLocation" x="1113" y="351"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="mM8-Ye-ZvN">
@@ -290,6 +296,7 @@
                             <constraint firstAttribute="trailing" secondItem="T8y-1c-EEz" secondAttribute="trailing" id="z0Z-0M-pc6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="iqA-fL-pGP"/>
                     <connections>
                         <outlet property="labelTitle" destination="SH4-K4-lDH" id="ix1-Gu-bPm"/>
                         <outlet property="tableView" destination="Edd-MB-Cq3" id="ba0-yZ-tFP"/>
@@ -297,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fzf-cX-Puu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2570.4000000000001" y="121.88905547226388"/>
+            <point key="canvasLocation" x="2148" y="-192"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NFC-vf-yTC">
@@ -310,12 +317,13 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="uGW-si-1Wh" kind="relationship" relationship="rootViewController" id="qZQ-Nr-spb"/>
+                        <segue destination="uGW-si-1Wh" kind="relationship" relationship="rootViewController" id="Imu-EG-xeI"/>
+                        <segue destination="NEV-sv-dpz" kind="show" id="X5i-YL-hzV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ukj-9Z-tMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="128.18590704647679"/>
+            <point key="canvasLocation" x="-148" y="208"/>
         </scene>
     </scenes>
     <resources>

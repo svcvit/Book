@@ -74,15 +74,12 @@ class DetailHeadView: UIView {
         
     }
     
-    //这里没看懂
-    
-    //DetailHeadView 设置成freeform，设置一个高度。但是containerView不要设置固定高度
+
+    //DetailHeadView 设置成freeform，设置一个高度。但是containerView不要设置固定高度，这样高度就可以自适应
     
     override func layoutSubviews() {
         super.layoutSubviews()
         frame.size.height = containerView.frame.size.height
-        print (frame.size.height)
-        print (containerView.frame.size.height)
         tableView.tableHeaderView = self
         
     }

@@ -15,6 +15,8 @@ class BookSearchController: UIViewController,UISearchResultsUpdating,UITableView
     weak var bookController:BookViewController!
     var searchController = UISearchController()
     let searchPlaceholder = "搜搜电影"
+    var books:JSON = []
+    var tmp:JSON = nil
     
 
     let url = "https://api.douban.com/v2/movie/search"
@@ -39,12 +41,12 @@ class BookSearchController: UIViewController,UISearchResultsUpdating,UITableView
     func updateSearchResults(for searchController: UISearchController) {
         self.searchTitle = [String]()
         if let tag = searchController.searchBar.text {
-        Alamofire.request(url, method: .get, parameters: ["tag":tag,"start":0,"count":5],encoding: URLEncoding.default).responseJSON {
+        Alamofire.request(url, method: .get, parameters: ["tag":tag,"start":0,"count":10],encoding: URLEncoding.default).responseJSON {
             response in
             switch response.result {
             case .success:
-                let books = JSON(response.result.value)["subjects"]
-                for (_,v) in books {
+                self.books = JSON(response.result.value)["subjects"]
+                for (_,v) in self.books {
                     self.searchTitle.append(v["title"].string!)
                 }
                 self.tableView.reloadData()
@@ -68,6 +70,20 @@ class BookSearchController: UIViewController,UISearchResultsUpdating,UITableView
         cell.textLabel!.text = searchTitle[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        self.tmp = self.books[indexPath.row]
+        performSegue(withIdentifier: "showDetail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            let viewController = segue.destination as! DetailViewController
+            viewController.book = self.tmp
+        }
+    }
+    
 
     
 
