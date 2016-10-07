@@ -22,7 +22,13 @@ class BookCell:UITableViewCell {
         imageViewIcon.kf.setImage(with: URL(string:book["images"]["medium"].string!))
         labelTitle.text = book["title"].string
         labelDetail.text = ("评分：\(book["rating"]["average"].double!.description)")
-        RatingView.showInView(view: ratingViewContainer, value:Double(transAverage(average: book["rating"]["average"].double!))!)
+        //暂时未处理没有评分的情况
+        if let rating = Double(transAverage(average: book["rating"]["average"].double!)) {
+                RatingView.showInView(view: ratingViewContainer, value:rating)
+        }else {
+            RatingView.showNORating(view: ratingViewContainer)
+        }
+        
         
     }
     

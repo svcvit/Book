@@ -85,6 +85,36 @@ class RatingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //没有评分
+    
+    static var KeyNoRating = "KeyNoRating"
+    
+    static func showNORating(view:UIView){
+        for subview in view.subviews {
+            if let subview = subview as? RatingView {
+                subview.isHidden = true
+                return
+            }
+        }
+        
+        var label:UILabel = (objc_getAssociatedObject(view, &KeyNoRating) as? UILabel)!
+        
+        if label == nil {
+            label = UILabel(frame:view.bounds)
+            
+            label.font = UIFont.systemFont(ofSize: 13.0)
+            view.addSubview(label)
+            label.text = "暂无评分"
+            objc_setAssociatedObject(view, &KeyNoRating, label, .OBJC_ASSOCIATION_ASSIGN)
+        }
+        
+        label.isHidden = false
+        
+        
+        
+    }
+    
+    
     static func showInView(view:UIView,value:Double,StarMax:Double = 5){
         
         for subview in view.subviews {
@@ -101,6 +131,10 @@ class RatingView: UIView {
         
         view.addSubview(ratingView)
         ratingView.value = value
+        
+        if let label = objc_getAssociatedObject(view, &KeyNoRating) as? UILabel {
+            label.isHidden = true
+        }
         
     }
     

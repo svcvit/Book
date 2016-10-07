@@ -130,6 +130,12 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
         return bookCell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailController = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        navigationController?.pushViewController(detailController, animated: true)
+        
+        detailController.book = books[indexPath.row]
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
