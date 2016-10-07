@@ -12,16 +12,21 @@ Swift 3.0
 
 ### 第三方库
 尽量都是用了纯Swift的库，原教程的库替换如下
+
 `AFNetworking` -> `Alamofire`
+
 `Toast` -> `Toast-Swift`
+
 `SDWebImage` -> `Kingfisher`
+
 `MJRefresh` -> `ESPullToRefresh`
+
 `无️` -> `SwiftyJSON`
 
 ### 一点截图
 
-![首页](https://raw.githubusercontent.com/svcvit/Book/master/snap/01_900.jpg)
+![首页](https://raw.githubusercontent.com/svcvit/Book/master/snap/01_900.jpg =200x)
 
-![详情](https://raw.githubusercontent.com/svcvit/Book/master/snap/02_900.jpg)
+![详情](https://raw.githubusercontent.com/svcvit/Book/master/snap/02_900.jpg =200x)
 
-![搜索](https://raw.githubusercontent.com/svcvit/Book/master/snap/03_900.jpg)
+![搜索](https://raw.githubusercontent.com/svcvit/Book/master/snap/03_900.jpg =200x)
